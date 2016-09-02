@@ -16,10 +16,12 @@ import {
 } from 'react-native';
 
 import Swiper from 'react-native-swiper';
-
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconFA from 'react-native-vector-icons/FontAwesome';
 import Util from './Util';
+
+import Day1 from './components/day1';
+
 
 export default class extends Component {
   constructor() {
@@ -28,6 +30,7 @@ export default class extends Component {
       days:[{
         key: 0,
         title: 'A stopwatch',
+        component: Day1,
         isFA: false,
         icon: 'ios-stopwatch',
         size: 48,
@@ -36,6 +39,7 @@ export default class extends Component {
       },{
         key: 1,
         title: 'A weather app',
+        component: Day1,
         isFA: false,
         icon: 'ios-sunny',
         size: 60,
@@ -44,24 +48,22 @@ export default class extends Component {
       },{
         key: 2,
         title: 'Twitter',
+        component: Day1,
         isFA: true,
         icon: 'twitter',
         size: 50,
         color: '#2aa2ef',
         hideNav: true,
-      }
-
-    ]
-    };
-
-  }
-
-  componentWillMount() {
-
+      }]
+    }
   }
 
   _loadDay(index) {
-    alert(index);
+    var nextRoute = {
+      title: this.state.days[index].title,
+      component: this.state.days[index].component,
+    };
+    this.props.navigator.push(nextRoute);
   }
 
   render() {
@@ -91,26 +93,27 @@ export default class extends Component {
 
     return (
       <ScrollView>
-      <Swiper
-        height={150}
-        showsButtons={false}
-        autoplay={true}
-        autoplayTimeout={5.0}
-        activeDot={<View style={{backgroundColor: 'rgba(255,255,255,0.8)', width: 8, height: 8, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3,}} />}>
+        <Swiper
+          height={150}
+          showsButtons={false}
+          autoplay={true}
+          autoplayTimeout={5.0}
+          activeDot={<View style={{backgroundColor: 'rgba(255,255,255,0.8)', width: 8, height: 8, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3,}} />}>
 
-        <TouchableHighlight onPress={() => self._loadDay(0)}>
-          <View style={styles.slide}>
-            <Image style={styles.image} source={{uri:'day1'}}/>
-            <Text style={styles.slideText}>Day 1: A stopwatch </Text>
-          </View>
-        </TouchableHighlight>
-        <TouchableHighlight onPress={() => self._loadDay(1)}>
-          <View style={styles.slide}>
-            <Image style={styles.image} source={{uri:'day2'}}/>
-            <Text style={styles.slideText}>Day 2: A weather app </Text>
-          </View>
-        </TouchableHighlight>
-      </Swiper>
+          <TouchableHighlight onPress={() => self._loadDay(0)}>
+            <View style={styles.slide}>
+              <Image style={styles.image} source={{uri:'day1'}}/>
+              <Text style={styles.slideText}>Day 1: A stopwatch </Text>
+            </View>
+          </TouchableHighlight>
+
+          <TouchableHighlight onPress={() => self._loadDay(1)}>
+            <View style={styles.slide}>
+              <Image style={styles.image} source={{uri:'day2'}}/>
+              <Text style={styles.slideText}>Day 2: A weather app </Text>
+            </View>
+          </TouchableHighlight>
+        </Swiper>
 
         <View style={styles.touchBoxContainer}>
           {items}
