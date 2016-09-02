@@ -17,6 +17,19 @@ import {
 import AppView from './AppView';
 
 export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      navigationBarHidden: false
+    }
+  }
+
+  hideNavigationBar(state) {
+    this.setState({
+      navigationBarHidden: state
+    });
+  }
+
   render() {
     return (
       <NavigatorIOS
@@ -25,9 +38,11 @@ export default class App extends Component {
         initialRoute={{
           title: '30 Days of React Native',
           component: AppView,
-          backButtonTitle: 'back',
+          passProps: {hideNavigationBar: this.hideNavigationBar.bind(this)},
+          backButtonTitle: 'Back',
           shadowHidden: true,
         }}
+        navigationBarHidden={this.state.navigationBarHidden}
       />
     );
   }

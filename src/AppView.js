@@ -64,6 +64,7 @@ export default class extends Component {
       component: this.state.days[index].component,
     };
     this.props.navigator.push(nextRoute);
+    this.props.hideNavigationBar(this.state.days[index].hideNav);
   }
 
   render() {
