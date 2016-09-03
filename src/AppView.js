@@ -20,7 +20,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import IconFA from 'react-native-vector-icons/FontAwesome';
 import Util from './Util';
 
-import Day1 from './components/day1';
+import Day1 from './scenes/day1';
 
 
 export default class extends Component {
