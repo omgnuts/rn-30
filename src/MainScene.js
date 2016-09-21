@@ -35,7 +35,6 @@ export default class extends Component {
         icon: 'ios-stopwatch',
         size: 48,
         color: '#ff856c',
-        hideNav: false,
       },{
         key: 1,
         title: 'A weather app',
@@ -44,7 +43,6 @@ export default class extends Component {
         icon: 'ios-sunny',
         size: 60,
         color:'#90bdc1',
-        hideNav: true,
       },{
         key: 2,
         title: 'Twitter',
@@ -53,33 +51,23 @@ export default class extends Component {
         icon: 'twitter',
         size: 50,
         color: '#2aa2ef',
-        hideNav: true,
       }]
     };
-
-    //this.props.setNavbar('hello');
-
   }
 
   _loadDay(index) {
     var nextRoute = {
       title: this.state.days[index].title,
-      component: this.state.days[index].component,
+      scene: this.state.days[index].component,
     };
     this.props.navigator.push(nextRoute);
-    this.props.hideNavigationBar(this.state.days[index].hideNav);
-  }
-
-  componentWillMount() {
-    this.props.setNavbar('hello');
   }
 
   render() {
-    
-    //var self = this;
+    var self = this;
     var items = this.state.days.map(function(elem, index) {
       return (
-        <TouchableHighlight onPress={() => this._loadDay(index).bind(this)}
+        <TouchableHighlight onPress={() => self._loadDay(index)}
           key={elem.key}
           style={[styles.touchBox, index%3==2 ? styles.touchBox2 : styles.touchBox1]}
           underlayColor='#eee'>
@@ -109,14 +97,14 @@ export default class extends Component {
           autoplayTimeout={5.0}
           activeDot={<View style={{backgroundColor: 'rgba(255,255,255,0.8)', width: 8, height: 8, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3,}} />}>
 
-          <TouchableHighlight onPress={() => this._loadDay(0).bind(this)}>
+          <TouchableHighlight onPress={() => self._loadDay(0)}>
             <View style={styles.slide}>
               <Image style={styles.image} source={{uri:'day1'}}/>
               <Text style={styles.slideText}>Day 1: A stopwatch </Text>
             </View>
           </TouchableHighlight>
 
-          <TouchableHighlight onPress={() => this._loadDay(1).bind(this)}>
+          <TouchableHighlight onPress={() => self._loadDay(1)}>
             <View style={styles.slide}>
               <Image style={styles.image} source={{uri:'day2'}}/>
               <Text style={styles.slideText}>Day 2: A weather app </Text>

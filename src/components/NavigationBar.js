@@ -1,22 +1,12 @@
-/**
- * 30 Days of React Native
- * https://github.com/thecookiejar/30-days-of-react-native
- * @thecookiejar
- */
-'use strict';
 
 import React, { Component } from 'react';
 import {
-  AppRegistry,
-  Navigator,
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
+    View,
+    Text,
+    TouchableOpacity,
+    Navigator,
+    StyleSheet,
 } from 'react-native';
-
-import MainScene from './MainScene';
-// import NavigationBar from './components/NavigationBar.js';
 
 var NavigationBarRouteMapper = {
     LeftButton: (route, navigator, index, navState) => {
@@ -58,42 +48,37 @@ var NavigationBarRouteMapper = {
     },
 };
 
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-  
-  renderScene(route, navigator) {
-    return <route.scene navigator={navigator} {...route.passProps} />
-  }
+export default class extends Component {
 
-  render() {
-    const initRoute = {
-      scene: MainScene,
-      title: 'MainScene',
-      passProps: {        
-      },
+    render() {
+        return (
+            <Navigator.NavigationBar
+                {...this.props}
+                style={styles.navBar}
+                routeMapper={NavigationBarRouteMapper}
+            />
+
+        );
     }
-
-    return (
-      <Navigator
-        style={styles.container}
-        initialRoute={initRoute}
-        renderScene={this.renderScene.bind(this)}
-        navigationBar={
-          <Navigator.NavigationBar
-            routeMapper={NavigationBarRouteMapper}
-            style={styles.navBar}
-          />
-        }
-      />
-    );
-  }
 }
 
 const styles = StyleSheet.create({
-  container:{
-    flex: 1
+  messageText: {
+    fontSize: 17,
+    fontWeight: '500',
+    padding: 15,
+    marginTop: 50,
+    marginLeft: 15,
+  },
+  button: {
+    backgroundColor: 'white',
+    padding: 15,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: '#CDCDCD',
+  },
+  buttonText: {
+    fontSize: 17,
+    fontWeight: '500',
   },
   navBar: {
     backgroundColor: 'white',
@@ -122,5 +107,3 @@ const styles = StyleSheet.create({
     backgroundColor: '#EAEAEA',
   },
 });
-
-AppRegistry.registerComponent('App', () => App);
