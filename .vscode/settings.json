@@ -2,9 +2,9 @@
 {
     "typescript.tsdk": "node_modules/typescript/lib",
 
-    "editor.tabSize": 4,
+    "editor.tabSize": 2,
 
-    "editor.detectIndentation": true,
+    "editor.detectIndentation": false,
 
     "javascript.validate.enable": false
 }

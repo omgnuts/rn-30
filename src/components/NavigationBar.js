@@ -5,74 +5,76 @@ import {
   Text,
   TouchableOpacity,
   Navigator,
-    StyleSheet,
+  StyleSheet,
 } from 'react-native';
 
-export default () => { 
-    return {
-        LeftButton: (route, navigator, index, navState) => {
-            if (index === 0) {
-                return null;
-            }
+const DefaultRouteMapper = { 
 
-            var previousRoute = navState.routeStack[index - 1];
-            return (
-                <TouchableOpacity
-                    onPress={() => navigator.pop()}
-                    style={styles.navBarLeftButton}>
-                    <Text style={[styles.navBarText, styles.navBarButtonText]}>
-                    {previousRoute.title}
-                    </Text>
-                </TouchableOpacity>
-            );
-        },
-
-        RightButton: (route, navigator, index, navState) => {
-            return (
-                <TouchableOpacity
-                    onPress={() => navigator.push(newRandomRoute())}
-                    style={styles.navBarRightButton}>
-                    <Text style={[styles.navBarText, styles.navBarButtonText]}>
-                    {route.right} 
-                    </Text>
-                </TouchableOpacity>
-            );
-        },
-
-        Title: (route, navigator, index, navState) => {
-            return (
-                <Text style={[styles.navBarText, styles.navBarTitleText]}>
-                    {route.title} [{index}]
-                </Text>
-            );
-        },
+  LeftButton: (route, navigator, index, navState) => {
+    if (index === 0) {
+      return null;
     }
-};
 
-// export class NavBar extends Component {
+    var previousRoute = navState.routeStack[index - 1];
+    return (
+      <TouchableOpacity
+          onPress={() => navigator.pop()}
+          style={styles.navBarLeftButton}>
+          <Text style={[styles.navBarText, styles.navBarButtonText]}>
+            {previousRoute.title}
+          </Text>
+      </TouchableOpacity>
+    );
+  },
 
-//   renderScene(route, navigator) {
-//     return <route.class navigator={navigator} />
-//   }
+  RightButton: (route, navigator, index, navState) => {
+    return (
+      <TouchableOpacity
+          onPress={() => navigator.push(newRandomRoute())}
+          style={styles.navBarRightButton}>
+          <Text style={[styles.navBarText, styles.navBarButtonText]}>
+            {route.right} 
+          </Text>
+      </TouchableOpacity>
+    );
+  },
 
-//   render() {
-//     return (
-//       <Navigator
-//         style={styles.container}
-//         initialRoute={MainRoute()}
-//         renderScene={this.renderScene.bind(this)}
-//         navigationBar={
-//           <Navigator.NavigationBar
-//             routeMapper={NavigationBarRouteMapper()}
-//             style={styles.navBar}
-//           />
-//         }
-//       />
-//     );
-// }
+  Title: (route, navigator, index, navState) => {
+    return (
+      <Text style={[styles.navBarText, styles.navBarTitleText]}>
+          {route.title} [{index}]
+      </Text>
+    );
+  },
+}
 
+export default class extends Component {
+
+  renderScene(route, navigator) {
+    return <route.class navigator={navigator} />
+  }
+
+  render() {
+    return (
+      <Navigator
+        style={styles.container}
+        renderScene={this.renderScene}
+        navigationBar={
+          <Navigator.NavigationBar
+            routeMapper={DefaultRouteMapper}
+            style={styles.navBar}
+          />
+        }
+        {...this.props}
+      />
+    );
+  }
+}
 
 const styles = StyleSheet.create({
+  container:{
+    flex: 1
+  },
   navBar: {
     backgroundColor: 'white',
   },
