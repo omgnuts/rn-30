@@ -15,6 +15,23 @@ import {
 } from 'react-native';
 import Util from './../Util';
 
+export default class Day1Route {
+  constructor() {
+    this.info = {
+      class: Day1,
+      title: 'Day1Route122321312',
+      right: 'R1R2'
+    }
+
+    // this.title = 'Day1Route';
+    // this.right = 'haaaaa';
+  }
+
+  // scene() {
+  //   return { class: Day1 };
+  // }
+}
+
 /**
  * TimerFace displays the TotalTime & the current LapseTime
  */
@@ -123,7 +140,7 @@ class TimerLapse extends Component {
 
 }
 
-export default class extends Component {
+export class Day1 extends Component {
   constructor() {
     super();
     this.state = this._initState();

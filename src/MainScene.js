@@ -20,10 +20,27 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import IconFA from 'react-native-vector-icons/FontAwesome';
 import Util from './Util';
 
-import Day1 from './scenes/day1';
+import Day1Route, { Day1 } from './scenes/day1';
 
+export default class MainRoute {
+  constructor() {
+    this.info = {
+      class: MainScene,
+      title: 'feafgqe',
+      left: 'aa[',
+      right: 'R1'
+    }
 
-export default class extends Component {
+    // this.title = 'titties';
+    // this.right = 'ha';
+  }
+
+  // scene() {
+  //   return { class: MainScene };
+  // }
+}
+
+class MainScene extends Component {
   constructor() {
     super();
     this.state = {
@@ -56,11 +73,14 @@ export default class extends Component {
   }
 
   _loadDay(index) {
-    var nextRoute = {
-      title: this.state.days[index].title,
-      scene: this.state.days[index].component,
-    };
-    this.props.navigator.push(nextRoute);
+    // var nextRoute = {
+    //   title: this.state.days[index].title,
+    //   scene: this.state.days[index].component,
+    // };
+    // this.props.navigator.push(nextRoute);
+
+    this.props.navigator.push(new Day1Route());
+
   }
 
   render() {
