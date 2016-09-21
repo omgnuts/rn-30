@@ -15,7 +15,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-import MainRoute from './MainScene';
+import MainRoute, { MainScene, MMM } from './MainScene';
 // import NavigationBar from './components/NavigationBar.js';
 
 var NavigationBarRouteMapper = {
@@ -30,7 +30,7 @@ var NavigationBarRouteMapper = {
                 onPress={() => navigator.pop()}
                 style={styles.navBarLeftButton}>
                 <Text style={[styles.navBarText, styles.navBarButtonText]}>
-                {previousRoute.info.title}
+                {previousRoute.title}
                 </Text>
             </TouchableOpacity>
         );
@@ -42,7 +42,7 @@ var NavigationBarRouteMapper = {
                 onPress={() => navigator.push(newRandomRoute())}
                 style={styles.navBarRightButton}>
                 <Text style={[styles.navBarText, styles.navBarButtonText]}>
-                {route.info.right} 
+                {route.right} 
                 </Text>
             </TouchableOpacity>
         );
@@ -51,7 +51,7 @@ var NavigationBarRouteMapper = {
     Title: (route, navigator, index, navState) => {
         return (
             <Text style={[styles.navBarText, styles.navBarTitleText]}>
-                {route.info.title} [{index}]
+                {route.title} [{index}]
             </Text>
         );
     },
@@ -63,14 +63,14 @@ export default class App extends Component {
   }
   
   renderScene(route, navigator) {
-    return <route.info.class navigator={navigator} />
+    return <route.class navigator={navigator} />
   }
 
   render() {
     return (
       <Navigator
         style={styles.container}
-        initialRoute={new MainRoute()}
+        initialRoute={MainRoute()}
         renderScene={this.renderScene.bind(this)}
         navigationBar={
           <Navigator.NavigationBar

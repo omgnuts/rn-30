@@ -22,25 +22,15 @@ import Util from './Util';
 
 import Day1Route, { Day1 } from './scenes/day1';
 
-export default class MainRoute {
-  constructor() {
-    this.info = {
-      class: MainScene,
-      title: 'feafgqe',
-      left: 'aa[',
-      right: 'R1'
-    }
-
-    // this.title = 'titties';
-    // this.right = 'ha';
+export default () => {
+  return {
+    class: MainScene,
+    title: 'MainScene',
+    right: 'R1R2'
   }
+};
 
-  // scene() {
-  //   return { class: MainScene };
-  // }
-}
-
-class MainScene extends Component {
+export class MainScene extends Component {
   constructor() {
     super();
     this.state = {
@@ -79,7 +69,7 @@ class MainScene extends Component {
     // };
     // this.props.navigator.push(nextRoute);
 
-    this.props.navigator.push(new Day1Route());
+    this.props.navigator.push(Day1Route());
 
   }
 
