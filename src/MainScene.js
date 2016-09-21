@@ -55,7 +55,10 @@ export default class extends Component {
         color: '#2aa2ef',
         hideNav: true,
       }]
-    }
+    };
+
+    //this.props.setNavbar('hello');
+
   }
 
   _loadDay(index) {
@@ -67,11 +70,16 @@ export default class extends Component {
     this.props.hideNavigationBar(this.state.days[index].hideNav);
   }
 
+  componentWillMount() {
+    this.props.setNavbar('hello');
+  }
+
   render() {
-    var self = this;
+    
+    //var self = this;
     var items = this.state.days.map(function(elem, index) {
       return (
-        <TouchableHighlight onPress={() => self._loadDay(index)}
+        <TouchableHighlight onPress={() => this._loadDay(index).bind(this)}
           key={elem.key}
           style={[styles.touchBox, index%3==2 ? styles.touchBox2 : styles.touchBox1]}
           underlayColor='#eee'>
@@ -91,7 +99,7 @@ export default class extends Component {
         </TouchableHighlight>
       );
     });
-
+    
     return (
       <ScrollView>
         <Swiper
@@ -101,14 +109,14 @@ export default class extends Component {
           autoplayTimeout={5.0}
           activeDot={<View style={{backgroundColor: 'rgba(255,255,255,0.8)', width: 8, height: 8, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3,}} />}>
 
-          <TouchableHighlight onPress={() => self._loadDay(0)}>
+          <TouchableHighlight onPress={() => this._loadDay(0).bind(this)}>
             <View style={styles.slide}>
               <Image style={styles.image} source={{uri:'day1'}}/>
               <Text style={styles.slideText}>Day 1: A stopwatch </Text>
             </View>
           </TouchableHighlight>
 
-          <TouchableHighlight onPress={() => self._loadDay(1)}>
+          <TouchableHighlight onPress={() => this._loadDay(1).bind(this)}>
             <View style={styles.slide}>
               <Image style={styles.image} source={{uri:'day2'}}/>
               <Text style={styles.slideText}>Day 2: A weather app </Text>
