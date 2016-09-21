@@ -1,85 +1,78 @@
 
 import React, { Component } from 'react';
 import {
-    View,
-    Text,
-    TouchableOpacity,
-    Navigator,
+  View,
+  Text,
+  TouchableOpacity,
+  Navigator,
     StyleSheet,
 } from 'react-native';
 
-var NavigationBarRouteMapper = {
-    LeftButton: (route, navigator, index, navState) => {
-        if (index === 0) {
-            return null;
-        }
+export default () => { 
+    return {
+        LeftButton: (route, navigator, index, navState) => {
+            if (index === 0) {
+                return null;
+            }
 
-        var previousRoute = navState.routeStack[index - 1];
-        return (
-            <TouchableOpacity
-                onPress={() => navigator.pop()}
-                style={styles.navBarLeftButton}>
-                <Text style={[styles.navBarText, styles.navBarButtonText]}>
-                {previousRoute.title}
+            var previousRoute = navState.routeStack[index - 1];
+            return (
+                <TouchableOpacity
+                    onPress={() => navigator.pop()}
+                    style={styles.navBarLeftButton}>
+                    <Text style={[styles.navBarText, styles.navBarButtonText]}>
+                    {previousRoute.title}
+                    </Text>
+                </TouchableOpacity>
+            );
+        },
+
+        RightButton: (route, navigator, index, navState) => {
+            return (
+                <TouchableOpacity
+                    onPress={() => navigator.push(newRandomRoute())}
+                    style={styles.navBarRightButton}>
+                    <Text style={[styles.navBarText, styles.navBarButtonText]}>
+                    {route.right} 
+                    </Text>
+                </TouchableOpacity>
+            );
+        },
+
+        Title: (route, navigator, index, navState) => {
+            return (
+                <Text style={[styles.navBarText, styles.navBarTitleText]}>
+                    {route.title} [{index}]
                 </Text>
-            </TouchableOpacity>
-        );
-    },
-
-    RightButton: (route, navigator, index, navState) => {
-        return (
-            <TouchableOpacity
-                onPress={() => navigator.push(newRandomRoute())}
-                style={styles.navBarRightButton}>
-                <Text style={[styles.navBarText, styles.navBarButtonText]}>
-                Next
-                </Text>
-            </TouchableOpacity>
-        );
-    },
-
-    Title: (route, navigator, index, navState) => {
-        console.log('.... title' + route.title);
-        return (
-            <Text style={[styles.navBarText, styles.navBarTitleText]}>
-                {route.title} [{index}]
-            </Text>
-        );
-    },
+            );
+        },
+    }
 };
 
-export default class extends Component {
+// export class NavBar extends Component {
 
-    render() {
-        return (
-            <Navigator.NavigationBar
-                {...this.props}
-                style={styles.navBar}
-                routeMapper={NavigationBarRouteMapper}
-            />
+//   renderScene(route, navigator) {
+//     return <route.class navigator={navigator} />
+//   }
 
-        );
-    }
-}
+//   render() {
+//     return (
+//       <Navigator
+//         style={styles.container}
+//         initialRoute={MainRoute()}
+//         renderScene={this.renderScene.bind(this)}
+//         navigationBar={
+//           <Navigator.NavigationBar
+//             routeMapper={NavigationBarRouteMapper()}
+//             style={styles.navBar}
+//           />
+//         }
+//       />
+//     );
+// }
+
 
 const styles = StyleSheet.create({
-  messageText: {
-    fontSize: 17,
-    fontWeight: '500',
-    padding: 15,
-    marginTop: 50,
-    marginLeft: 15,
-  },
-  button: {
-    backgroundColor: 'white',
-    padding: 15,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: '#CDCDCD',
-  },
-  buttonText: {
-    fontSize: 17,
-    fontWeight: '500',
-  },
   navBar: {
     backgroundColor: 'white',
   },

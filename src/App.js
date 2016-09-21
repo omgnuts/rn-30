@@ -16,46 +16,7 @@ import {
 } from 'react-native';
 
 import MainRoute, { MainScene, MMM } from './MainScene';
-// import NavigationBar from './components/NavigationBar.js';
-
-var NavigationBarRouteMapper = {
-    LeftButton: (route, navigator, index, navState) => {
-        if (index === 0) {
-            return null;
-        }
-
-        var previousRoute = navState.routeStack[index - 1];
-        return (
-            <TouchableOpacity
-                onPress={() => navigator.pop()}
-                style={styles.navBarLeftButton}>
-                <Text style={[styles.navBarText, styles.navBarButtonText]}>
-                {previousRoute.title}
-                </Text>
-            </TouchableOpacity>
-        );
-    },
-
-    RightButton: (route, navigator, index, navState) => {
-        return (
-            <TouchableOpacity
-                onPress={() => navigator.push(newRandomRoute())}
-                style={styles.navBarRightButton}>
-                <Text style={[styles.navBarText, styles.navBarButtonText]}>
-                {route.right} 
-                </Text>
-            </TouchableOpacity>
-        );
-    },
-
-    Title: (route, navigator, index, navState) => {
-        return (
-            <Text style={[styles.navBarText, styles.navBarTitleText]}>
-                {route.title} [{index}]
-            </Text>
-        );
-    },
-};
+import NavigationBarRouteMapper from './components/NavigationBar.js';
 
 export default class App extends Component {
   constructor(props) {
@@ -74,7 +35,7 @@ export default class App extends Component {
         renderScene={this.renderScene.bind(this)}
         navigationBar={
           <Navigator.NavigationBar
-            routeMapper={NavigationBarRouteMapper}
+            routeMapper={NavigationBarRouteMapper()}
             style={styles.navBar}
           />
         }
