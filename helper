@@ -1,0 +1,49 @@
+#!/bin/bash
+
+if [ $# -lt 1 ]; then
+echo "
+Usage: $0 <command>
+
+$0 run-ios  runs react-native on ios
+$0 run-and  runs react-native on android
+$0 clean 	  performs watchman clean up for react-native
+$0 perms 	  corrects the file permissions, when using VMshare between Mac & Win
+
+[Notes]
+To create a react-native project, run:
+> react-native init myapp
+
+Report bugs to peanuts@munchpress.com
+"
+fi
+
+case "$1" in 
+
+run-ios) 
+		react-native run-ios
+;;
+
+run-and)
+		react-native run-android
+;;
+
+clean) 
+		watchman watch-del-all
+		rm -rf node_modules && npm install
+		npm start -- --reset-cache
+;;
+
+perms)
+		#--include="*.js" \
+		rsync -avr --no-perms --no-owner --no-group \
+		--include="src/" \
+		--include="index.android.js" \
+		--include="index.ios.js" \
+		--exclude="*/" \
+		--exclude=".*" \
+		--exclude="*.json" \
+		--exclude="*.sh" \
+		`pwd` . 
+;;
+
+esac
