@@ -1,10 +1,17 @@
+/**
+ * 30 Days of React Native
+ * https://github.com/omgnuts/rn-30
+ * @javantwm
+ */
+
+'use strict';
 
 import React, { Component } from 'react';
 import {
   View,
   Text,
-  TouchableOpacity,
   Navigator,
+  TouchableOpacity,
   StyleSheet,
 } from 'react-native';
 
@@ -42,7 +49,7 @@ const DefaultRouteMapper = {
   Title: (route, navigator, index, navState) => {
     return (
       <Text style={[styles.navBarText, styles.navBarTitleText]}>
-          {route.title} [{index}]
+          {route.title}
       </Text>
     );
   },

@@ -1,3 +1,11 @@
+/**
+ * 30 Days of React Native
+ * https://github.com/omgnuts/rn-30
+ * @javantwm
+ */
+
+'use strict';
+
 import React, { PixelRatio } from 'react-native';
 import Dimensions from 'Dimensions';
 

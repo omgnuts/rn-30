@@ -1,20 +1,21 @@
 /**
  * 30 Days of React Native
- * https://github.com/thecookiejar/30-days-of-react-native
- * @thecookiejar
+ * https://github.com/omgnuts/rn-30
+ * @javantwm
  */
+
 'use strict';
 
 import React, { Component } from 'react';
 import { AppRegistry } from 'react-native';
 
 import Navigation from './components/Navigation.js';
-import MainRoute from './MainScene';
+import MainScene from './MainScene';
 
 export default class App extends Component {
   render() {
     return (
-      <Navigation initialRoute={ MainRoute() } />
+      <Navigation initialRoute={ MainScene() } />
     );
   }
 }

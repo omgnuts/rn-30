@@ -1,8 +1,9 @@
 /**
  * 30 Days of React Native
- * https://github.com/thecookiejar/30-days-of-react-native
- * @thecookiejar
+ * https://github.com/omgnuts/rn-30
+ * @javantwm
  */
+
 'use strict';
 
 import React, { Component } from 'react';
@@ -20,57 +21,47 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import IconFA from 'react-native-vector-icons/FontAwesome';
 import Util from './Util';
 
-import Day1Route, { Day1 } from './scenes/day1';
+import Day01 from './scenes/Day01';
 
 export default () => {
   return {
     class: MainScene,
-    title: 'MainScene',
-    right: 'R1R2'
+    title: 'Day List',
+    right: null,
   }
 };
 
-export class MainScene extends Component {
+class MainScene extends Component {
   constructor() {
     super();
     this.state = {
       days:[{
         key: 0,
-        title: 'A stopwatch',
-        component: Day1,
         isFA: false,
         icon: 'ios-stopwatch',
         size: 48,
         color: '#ff856c',
+        task: Day01,
       },{
         key: 1,
-        title: 'A weather app',
-        component: Day1,
         isFA: false,
         icon: 'ios-sunny',
         size: 60,
         color:'#90bdc1',
+        task: Day01,
       },{
         key: 2,
-        title: 'Twitter',
-        component: Day1,
         isFA: true,
         icon: 'twitter',
         size: 50,
         color: '#2aa2ef',
+        task: Day01,
       }]
     };
   }
 
   _loadDay(index) {
-    // var nextRoute = {
-    //   title: this.state.days[index].title,
-    //   scene: this.state.days[index].component,
-    // };
-    // this.props.navigator.push(nextRoute);
-
-    this.props.navigator.push(Day1Route());
-
+    this.props.navigator.push(this.state.days[index].task());
   }
 
   render() {

@@ -1,7 +1,10 @@
-/*
- * Day 1
- * A stop watch
+/**
+ * 30 Days of React Native
+ * https://github.com/omgnuts/rn-30
+ * @javantwm
  */
+
+// Day 01 - A stop watch
 
 'use strict';
 
@@ -13,14 +16,14 @@ import {
   TouchableHighlight,
   StyleSheet,
 } from 'react-native';
-import Util from './../Util';
 
+import Util from './../Util';
 
 export default () => {
   return {
-      class: Day1,
-      title: 'Day1Route122321312',
-      right: 'R1R2'
+      class: Day01,
+      title: 'Day 01',
+      right: ''
   }
 };
 
@@ -132,7 +135,7 @@ class TimerLapse extends Component {
 
 }
 
-export class Day1 extends Component {
+class Day01 extends Component {
   constructor() {
     super();
     this.state = this._initState();
