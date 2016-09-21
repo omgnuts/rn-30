@@ -8,7 +8,7 @@
 import React, { Component } from 'react';
 import { AppRegistry } from 'react-native';
 
-import Navigation from './components/NavigationBar.js';
+import Navigation from './components/Navigation.js';
 import MainRoute from './MainScene';
 
 export default class App extends Component {
