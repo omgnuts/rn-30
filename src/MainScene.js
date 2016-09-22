@@ -27,7 +27,8 @@ export default () => {
   return {
     class: MainScene,
     title: 'Day List',
-    right: null,
+    left: { name: 'Back' },
+    right: { name: 'Alert', handle: () => alert('hello') },
   }
 };
 

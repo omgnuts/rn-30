@@ -18,35 +18,64 @@ import {
 const DefaultRouteMapper = { 
 
   LeftButton: (route, navigator, index, navState) => {
-    if (index === 0) {
+    if (index === 0 || route.left === undefined || route.left === null) {
       return null;
     }
 
+    // return route.left as an override
+    if (typeof route.left === 'function') {
+      return route.left();
+    }
+
+    var handle = (route.left.handle === undefined || route.left.handle === null) ? 
+      () => navigator.pop() : route.left.handle;
+    
+    // else route.left probably just uses a default implementation similar to ios.
     var previousRoute = navState.routeStack[index - 1];
     return (
       <TouchableOpacity
-          onPress={() => navigator.pop()}
+          onPress={handle}
           style={styles.navBarLeftButton}>
           <Text style={[styles.navBarText, styles.navBarButtonText]}>
-            {previousRoute.title}
+            {previousRoute.left.name}
           </Text>
       </TouchableOpacity>
     );
   },
 
   RightButton: (route, navigator, index, navState) => {
+    if (route.right === undefined || route.right === null ||
+      route.right.handle === undefined || route.right.handle === null
+    ) {
+      return null;
+    }
+
+    // return route.right as an override
+    if (typeof route.right === 'function') {
+      return route.right();
+    }
+
     return (
       <TouchableOpacity
-          onPress={() => navigator.push(newRandomRoute())}
+          onPress={route.right.handle}
           style={styles.navBarRightButton}>
           <Text style={[styles.navBarText, styles.navBarButtonText]}>
-            {route.right} 
+            {route.right.name}
           </Text>
       </TouchableOpacity>
     );
   },
 
   Title: (route, navigator, index, navState) => {
+    if (route.title === undefined || route.title === null) {
+      return null;
+    }    
+
+    // return route.right as an override
+    if (typeof route.title === 'function') {
+      return route.title();
+    }
+    
     return (
       <Text style={[styles.navBarText, styles.navBarTitleText]}>
           {route.title}
