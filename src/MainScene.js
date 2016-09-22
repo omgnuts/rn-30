@@ -22,6 +22,7 @@ import IconFA from 'react-native-vector-icons/FontAwesome';
 import Util from './Util';
 
 import Day01 from './scenes/Day01';
+import Day02 from './scenes/Day02';
 
 export default () => {
   return {
@@ -49,7 +50,7 @@ class MainScene extends Component {
         icon: 'ios-sunny',
         size: 60,
         color:'#90bdc1',
-        task: Day01,
+        task: Day02,
       },{
         key: 2,
         isFA: true,

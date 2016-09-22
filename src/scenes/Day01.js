@@ -23,8 +23,6 @@ export default () => {
   return {
     class: Day01,
     title: 'Day 01',
-    left: { name: 'Main', handle: null },
-    right: { name: 'Next', handle: null },
   }
 };
 

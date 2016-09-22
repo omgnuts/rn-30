@@ -15,11 +15,23 @@ import {
   StyleSheet,
 } from 'react-native';
 
+var not = (v) => {
+  return v === undefined || v === null;
+}
+
 const DefaultRouteMapper = { 
 
   LeftButton: (route, navigator, index, navState) => {
-    if (index === 0 || route.left === undefined || route.left === null) {
+    if (index === 0) {
       return null;
+    }
+
+    // else route.left probably just uses a default implementation similar to ios.
+    var previousRoute = navState.routeStack[index - 1];
+    if (not(route.left)) {
+      if (not(previousRoute.left) || not(previousRoute.left.name)) {
+        return null;
+      }
     }
 
     // return route.left as an override
@@ -27,11 +39,9 @@ const DefaultRouteMapper = {
       return route.left();
     }
 
-    var handle = (route.left.handle === undefined || route.left.handle === null) ? 
+    var handle = not(route.left) || not(route.left.handle) ? 
       () => navigator.pop() : route.left.handle;
-    
-    // else route.left probably just uses a default implementation similar to ios.
-    var previousRoute = navState.routeStack[index - 1];
+
     return (
       <TouchableOpacity
           onPress={handle}
