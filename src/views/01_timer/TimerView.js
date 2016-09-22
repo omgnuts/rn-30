@@ -17,12 +17,12 @@ import {
   StyleSheet,
 } from 'react-native';
 
-import Util from './../Util';
+import Util from './../../Util';
 
 export default () => {
   return {
-    class: Day01,
-    title: 'Day 01',
+    class: TimerView,
+    title: 'Timer App',
   }
 };
 
@@ -134,7 +134,7 @@ class TimerLapse extends Component {
 
 }
 
-class Day01 extends Component {
+class TimerView extends Component {
   constructor() {
     super();
     this.state = this._initState();
@@ -238,7 +238,6 @@ class Day01 extends Component {
 
 const styles = StyleSheet.create({
   container:{
-    marginTop:65,
     alignItems: 'center',
     backgroundColor: '#f3f3f3',
   },

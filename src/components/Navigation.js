@@ -97,7 +97,11 @@ const DefaultRouteMapper = {
 export default class extends Component {
 
   renderScene(route, navigator) {
-    return <route.class navigator={navigator} />
+
+    return <View style={styles.container}>
+      <route.class navigator={navigator} />
+    </View>
+    
   }
 
   render() {
@@ -119,10 +123,11 @@ export default class extends Component {
 
 const styles = StyleSheet.create({
   container:{
-    flex: 1
+    flex: 1,
+    paddingTop:32,
   },
   navBar: {
-    backgroundColor: 'white',
+    // backgroundColor: 'red',
   },
   navBarText: {
     fontSize: 16,
@@ -141,10 +146,5 @@ const styles = StyleSheet.create({
   },
   navBarButtonText: {
     color: '#5890FF',
-  },
-  scene: {
-    flex: 1,
-    paddingTop: 20,
-    backgroundColor: '#EAEAEA',
-  },
+  }
 });

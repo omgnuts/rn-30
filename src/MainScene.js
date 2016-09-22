@@ -21,13 +21,13 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import IconFA from 'react-native-vector-icons/FontAwesome';
 import Util from './Util';
 
-import Day01 from './scenes/Day01';
-import Day02 from './scenes/Day02';
+import TimerView from './views/01_timer/TimerView';
+import WeatherView from './views/02_weather/WeatherView';
 
 export default () => {
   return {
     class: MainScene,
-    title: 'Day List',
+    title: 'App List',
     left: { name: 'Back' },
     right: { name: 'Alert', handle: () => alert('hello') },
   }
@@ -38,32 +38,29 @@ class MainScene extends Component {
     super();
     this.state = {
       days:[{
-        key: 0,
+        route: TimerView,
         isFA: false,
         icon: 'ios-stopwatch',
         size: 48,
         color: '#ff856c',
-        task: Day01,
       },{
-        key: 1,
+        route: WeatherView,
         isFA: false,
         icon: 'ios-sunny',
         size: 60,
         color:'#90bdc1',
-        task: Day02,
       },{
-        key: 2,
+        route: TimerView,
         isFA: true,
         icon: 'twitter',
         size: 50,
         color: '#2aa2ef',
-        task: Day01,
       }]
     };
   }
 
   _loadDay(index) {
-    this.props.navigator.push(this.state.days[index].task());
+    this.props.navigator.push(this.state.days[index].route());
   }
 
   render() {
@@ -71,11 +68,11 @@ class MainScene extends Component {
     var items = this.state.days.map(function(elem, index) {
       return (
         <TouchableHighlight onPress={() => self._loadDay(index)}
-          key={elem.key}
+          key={index}
           style={[styles.touchBox, index%3==2 ? styles.touchBox2 : styles.touchBox1]}
           underlayColor='#eee'>
           <View style={styles.boxContainer}>
-            <Text style={styles.boxText}>Day {index+1}</Text>
+            <Text style={styles.boxText}>App {index+1}</Text>
             {elem.isFA ?
               <IconFA
                 size={elem.size}
@@ -102,14 +99,14 @@ class MainScene extends Component {
 
           <TouchableHighlight onPress={() => self._loadDay(0)}>
             <View style={styles.slide}>
-              <Image style={styles.image} source={{uri:'day1'}}/>
+              <Image style={styles.image} source={require('./imgs/banner1.png')}/>
               <Text style={styles.slideText}>Day 1: A stopwatch </Text>
             </View>
           </TouchableHighlight>
 
           <TouchableHighlight onPress={() => self._loadDay(1)}>
             <View style={styles.slide}>
-              <Image style={styles.image} source={{uri:'day2'}}/>
+              <Image style={styles.image} source={require('./imgs/banner2.png')}/>
               <Text style={styles.slideText}>Day 2: A weather app </Text>
             </View>
           </TouchableHighlight>
