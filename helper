@@ -33,6 +33,11 @@ clean)
 		npm start -- --reset-cache
 ;;
 
+kill)
+    pids=$(lsof -n -i4TCP:8081 | grep node | awk '{print $2}')
+    kill $pids
+;; 
+
 perms)
 		#--include="*.js" \
 		rsync -avr --no-perms --no-owner --no-group \
