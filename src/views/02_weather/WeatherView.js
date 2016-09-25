@@ -30,13 +30,504 @@ export default () => {
 };
 
 
-const weatherData = [{key:0,city:"\u798f\u5dde",night:!0,bg:require('./imgs/w2.png'),abs:"\u5927\u90e8\u6674\u6717",degree:15,today:{week:"\u661f\u671f\u516d",day:"\u4eca\u5929",high:16,low:14},hours:[{key:101,time:"\u73b0\u5728",icon:"ios-moon",degree:"15\xb0",color:"rgba(255,255,255,1)"},{key:102,time:"3\u65f6",icon:"ios-cloudy-night",degree:"15\xb0",color:"rgba(255,255,255,0.8)"},{key:103,time:"4\u65f6",icon:"ios-cloudy-night",degree:"16\xb0",color:"rgba(255,255,255,0.8)"},{key:104,time:"5\u65f6",icon:"ios-cloudy-night",degree:"16\xb0",color:"rgba(255,255,255,0.8)"},{key:105,time:"6\u65f6",icon:"ios-cloudy-night",degree:"16\xb0",color:"rgba(255,255,255,0.8)"},{key:106,time:"06:21",icon:"ios-sunny-outline",degree:"\u65e5\u51fa",color:"#fedf32"},{key:107,time:"7\u65f6",icon:"ios-partlysunny",degree:"16\xb0",color:"rgba(255,255,255,0.9)"},{key:108,time:"8\u65f6",icon:"ios-partlysunny",degree:"18\xb0",color:"rgba(255,255,255,0.9)"},{key:109,time:"9\u65f6",icon:"ios-sunny",degree:"19\xb0",color:"#fedf32"},{key:110,time:"10\u65f6",icon:"ios-sunny",degree:"122\xb0",color:"#fedf32"},{key:111,time:"11\u65f6",icon:"ios-sunny",degree:"23\xb0",color:"#fedf32"},{key:112,time:"13\u65f6",icon:"ios-sunny",degree:"22\xb0",color:"#fedf32"},{key:113,time:"13\u65f6",icon:"ios-sunny",degree:"22\xb0",color:"#fedf32"},{key:114,time:"14\u65f6",icon:"ios-partlysunny",degree:"16\xb0",color:"rgba(255,255,255,0.9)"},{key:115,time:"15\u65f6",icon:"ios-partlysunny",degree:"22\xb0",color:"rgba(255,255,255,0.9)"},{key:116,time:"16\u65f6",icon:"ios-partlysunny",degree:"21\xb0",color:"rgba(255,255,255,0.9)"},{key:117,time:"17\u65f6",icon:"ios-partlysunny",degree:"19\xb0",color:"rgba(255,255,255,0.9)"},{key:118,time:"18\u65f6",icon:"ios-partlysunny",degree:"18\xb0",color:"rgba(255,255,255,0.9)"},{key:119,time:"18:06",icon:"ios-partlysunny-outline",degree:"\u65e5\u843d",color:"rgba(255,255,255,0.9)"},{key:120,time:"19\u65f6",icon:"ios-cloudy-night",degree:"18\xb0",color:"rgba(255,255,255,0.8)"},{key:121,time:"20\u65f6",icon:"ios-cloudy-night",degree:"18\xb0",color:"rgba(255,255,255,0.8)"},{key:122,time:"21\u65f6",icon:"ios-cloudy-night",degree:"18\xb0",color:"rgba(255,255,255,0.8)"},{key:123,time:"22\u65f6",icon:"ios-cloudy-night",degree:"17\xb0",color:"rgba(255,255,255,0.8)"},{key:124,time:"23\u65f6",icon:"ios-cloudy",degree:"17\xb0",color:"rgba(255,255,255,0.8)"},{key:125,time:"0\u65f6",icon:"ios-cloudy",degree:"17\xb0",color:"rgba(255,255,255,0.8)"},{key:126,time:"1\u65f6",icon:"ios-cloudy",degree:"17\xb0",color:"rgba(255,255,255,0.8)"},{key:127,time:"2\u65f6",icon:"ios-cloudy",degree:"17\xb0",color:"rgba(255,255,255,0.8)"}],days:[{key:21,day:"\u661f\u671f\u4e00",icon:"ios-partlysunny",high:21,low:16},{key:22,day:"\u661f\u671f\u4e8c",icon:"ios-rainy",high:22,low:14},{key:23,day:"\u661f\u671f\u4e09",icon:"ios-rainy",high:21,low:11},{key:24,day:"\u661f\u671f\u56db",icon:"ios-rainy",high:12,low:8},{key:25,day:"\u661f\u671f\u4e94",icon:"ios-rainy",high:9,low:7},{key:26,day:"\u661f\u671f\u516d",icon:"ios-partlysunny",high:13,low:9},{key:27,day:"\u661f\u671f\u65e5",icon:"ios-rainy",high:17,low:13},{key:28,day:"\u661f\u671f\u4e00",icon:"ios-partlysunny",high:18,low:14},{key:29,day:"\u661f\u671f\u4e8c",icon:"ios-partlysunny",high:22,low:17}],info:"\u4eca\u5929\uff1a\u4eca\u5929\u5927\u90e8\u591a\u4e91\u3002\u73b0\u5728\u6c14\u6e29 15\xb0\uff1b\u6700\u9ad8\u6c14\u6e2923\xb0\u3002",rise:"06:21",down:"18:06",prop:"10%",humi:"94%",dir:"\u4e1c\u5317\u504f\u5317",speed:"3\u5343\u7c73\uff0f\u5c0f\u65f6",feel:"15\xb0",rain:"0.0 \u5398\u7c73",pres:"1,016 \u767e\u5e15",sight:"5.0 \u516c\u91cc",uv:"0"},{key:1,city:"\u5361\u5c14\u52a0\u91cc",night:!1,bg:require('./imgs/w3.png'),abs:"\u5927\u90e8\u6674\u6717",degree:15,today:{week:"\u661f\u671f\u516d",day:"\u4eca\u5929",high:16,low:14},hours:[{key:101,time:"\u73b0\u5728",icon:"ios-moon",degree:"15\xb0",color:"rgba(255,255,255,1)"},{key:102,time:"3\u65f6",icon:"ios-cloudy-night",degree:"15\xb0",color:"rgba(255,255,255,0.8)"},{key:103,time:"4\u65f6",icon:"ios-cloudy-night",degree:"16\xb0",color:"rgba(255,255,255,0.8)"},{key:104,time:"5\u65f6",icon:"ios-cloudy-night",degree:"16\xb0",color:"rgba(255,255,255,0.8)"},{key:105,time:"6\u65f6",icon:"ios-cloudy-night",degree:"16\xb0",color:"rgba(255,255,255,0.8)"},{key:106,time:"06:21",icon:"ios-sunny-outline",degree:"\u65e5\u51fa",color:"#fedf32"},{key:107,time:"7\u65f6",icon:"ios-partlysunny",degree:"16\xb0",color:"rgba(255,255,255,0.9)"},{key:108,time:"8\u65f6",icon:"ios-partlysunny",degree:"18\xb0",color:"rgba(255,255,255,0.9)"},{key:109,time:"9\u65f6",icon:"ios-sunny",degree:"19\xb0",color:"#fedf32"},{key:110,time:"10\u65f6",icon:"ios-sunny",degree:"122\xb0",color:"#fedf32"},{key:111,time:"11\u65f6",icon:"ios-sunny",degree:"23\xb0",color:"#fedf32"},{key:112,time:"13\u65f6",icon:"ios-sunny",degree:"22\xb0",color:"#fedf32"},{key:113,time:"13\u65f6",icon:"ios-sunny",degree:"22\xb0",color:"#fedf32"},{key:114,time:"14\u65f6",icon:"ios-partlysunny",degree:"16\xb0",color:"rgba(255,255,255,0.9)"},{key:115,time:"15\u65f6",icon:"ios-partlysunny",degree:"22\xb0",color:"rgba(255,255,255,0.9)"},{key:116,time:"16\u65f6",icon:"ios-partlysunny",degree:"21\xb0",color:"rgba(255,255,255,0.9)"},{key:117,time:"17\u65f6",icon:"ios-partlysunny",degree:"19\xb0",color:"rgba(255,255,255,0.9)"},{key:118,time:"18\u65f6",icon:"ios-partlysunny",degree:"18\xb0",color:"rgba(255,255,255,0.9)"},{key:119,time:"18:06",icon:"ios-partlysunny-outline",degree:"\u65e5\u843d",color:"rgba(255,255,255,0.9)"},{key:120,time:"19\u65f6",icon:"ios-cloudy-night",degree:"18\xb0",color:"rgba(255,255,255,0.8)"},{key:121,time:"20\u65f6",icon:"ios-cloudy-night",degree:"18\xb0",color:"rgba(255,255,255,0.8)"},{key:122,time:"21\u65f6",icon:"ios-cloudy-night",degree:"18\xb0",color:"rgba(255,255,255,0.8)"},{key:123,time:"22\u65f6",icon:"ios-cloudy-night",degree:"17\xb0",color:"rgba(255,255,255,0.8)"},{key:124,time:"23\u65f6",icon:"ios-cloudy",degree:"17\xb0",color:"rgba(255,255,255,0.8)"},{key:125,time:"0\u65f6",icon:"ios-cloudy",degree:"17\xb0",color:"rgba(255,255,255,0.8)"},{key:126,time:"1\u65f6",icon:"ios-cloudy",degree:"17\xb0",color:"rgba(255,255,255,0.8)"},{key:127,time:"2\u65f6",icon:"ios-cloudy",degree:"17\xb0",color:"rgba(255,255,255,0.8)"}],days:[{key:21,day:"\u661f\u671f\u4e00",icon:"ios-partlysunny",high:21,low:16},{key:22,day:"\u661f\u671f\u4e8c",icon:"ios-rainy",high:22,low:14},{key:23,day:"\u661f\u671f\u4e09",icon:"ios-rainy",high:21,low:11},{key:24,day:"\u661f\u671f\u56db",icon:"ios-rainy",high:12,low:8},{key:25,day:"\u661f\u671f\u4e94",icon:"ios-rainy",high:9,low:7},{key:26,day:"\u661f\u671f\u516d",icon:"ios-partlysunny",high:13,low:9},{key:27,day:"\u661f\u671f\u65e5",icon:"ios-rainy",high:17,low:13},{key:28,day:"\u661f\u671f\u4e00",icon:"ios-partlysunny",high:18,low:14},{key:29,day:"\u661f\u671f\u4e8c",icon:"ios-partlysunny",high:22,low:17}],info:"\u4eca\u5929\uff1a\u4eca\u5929\u5927\u90e8\u591a\u4e91\u3002\u73b0\u5728\u6c14\u6e29 15\xb0\uff1b\u6700\u9ad8\u6c14\u6e2923\xb0\u3002",rise:"06:21",down:"18:06",prop:"10%",humi:"94%",dir:"\u4e1c\u5317\u504f\u5317",speed:"3\u5343\u7c73\uff0f\u5c0f\u65f6",feel:"15\xb0",rain:"0.0 \u5398\u7c73",pres:"1,016 \u767e\u5e15",sight:"5.0 \u516c\u91cc",uv:"0"}];
+const weatherData =[{  
+  key:0,
+  city:"Singapore",
+  night:!0,
+  bg:require('./imgs/w2.png'),
+  abs:"Mostly Cloudy",
+  degree:28,
+  today:{  
+    week:"Sunday",
+    day:"Today",
+    high:32,
+    low:25
+  },
+  hours:[{  
+      key:101,
+      time:"Now",
+      icon:"ios-moon",
+      degree:"27\xb0",
+      color:"rgba(255,255,255,1)"
+    },{  
+      key:102,
+      time:"3AM",
+      icon:"ios-cloudy-night",
+      degree:"26\xb0",
+      color:"rgba(255,255,255,0.8)"
+    },{  
+      key:103,
+      time:"4AM",
+      icon:"ios-cloudy-night",
+      degree:"26\xb0",
+      color:"rgba(255,255,255,0.8)"
+    },{  
+      key:104,
+      time:"5AM",
+      icon:"ios-cloudy-night",
+      degree:"26\xb0",
+      color:"rgba(255,255,255,0.8)"
+    },{  
+      key:105,
+      time:"6AM",
+      icon:"ios-cloudy-night",
+      degree:"26\xb0",
+      color:"rgba(255,255,255,0.8)"
+    },{  
+      key:106,
+      time:"6:52 AM",
+      icon:"ios-sunny-outline",
+      degree:"Sunrise",
+      color:"#fedf32"
+    },{  
+      key:107,
+      time:"7AM",
+      icon:"ios-partly-sunny",
+      degree:"26\xb0",
+      color:"rgba(255,255,255,0.9)"
+    },{  
+      key:108,
+      time:"8AM",
+      icon:"ios-partly-sunny",
+      degree:"26\xb0",
+      color:"rgba(255,255,255,0.9)"
+    },{  
+      key:109,
+      time:"9AM",
+      icon:"ios-sunny",
+      degree:"27\xb0",
+      color:"#fedf32"
+    },{  
+      key:110,
+      time:"10AM",
+      icon:"ios-sunny",
+      degree:"29\xb0",
+      color:"#fedf32"
+    },{  
+      key:111,
+      time:"11AM",
+      icon:"ios-sunny",
+      degree:"31\xb0",
+      color:"#fedf32"
+    },{  
+      key:112,
+      time:"12PM",
+      icon:"ios-sunny",
+      degree:"31\xb0",
+      color:"#fedf32"
+    },{  
+      key:113,
+      time:"1PM",
+      icon:"ios-sunny",
+      degree:"32\xb0",
+      color:"#fedf32"
+    },{  
+      key:114,
+      time:"2PM",
+      icon:"ios-partly-sunny",
+      degree:"32\xb0",
+      color:"rgba(255,255,255,0.9)"
+    },{  
+      key:115,
+      time:"3PM",
+      icon:"ios-partly-sunny",
+      degree:"32\xb0",
+      color:"rgba(255,255,255,0.9)"
+    },{  
+      key:116,
+      time:"4PM",
+      icon:"ios-partly-sunny",
+      degree:"31\xb0",
+      color:"rgba(255,255,255,0.9)"
+    },{  
+      key:117,
+      time:"5PM",
+      icon:"ios-partly-sunny",
+      degree:"31\xb0",
+      color:"rgba(255,255,255,0.9)"
+    },{  
+      key:118,
+      time:"6PM",
+      icon:"ios-partly-sunny",
+      degree:"31\xb0",
+      color:"rgba(255,255,255,0.9)"
+    },{  
+      key:119,
+      time:"6:59 PM",
+      icon:"ios-partly-sunny-outline",
+      degree:"Sunset",
+      color:"rgba(255,255,255,0.9)"
+    },{  
+      key:120,
+      time:"7PM",
+      icon:"ios-cloudy-night",
+      degree:"29\xb0",
+      color:"rgba(255,255,255,0.8)"
+    },{  
+      key:121,
+      time:"8PM",
+      icon:"ios-cloudy-night",
+      degree:"29\xb0",
+      color:"rgba(255,255,255,0.8)"
+    },{  
+      key:122,
+      time:"9PM",
+      icon:"ios-cloudy-night",
+      degree:"28\xb0",
+      color:"rgba(255,255,255,0.8)"
+    },{  
+      key:123,
+      time:"10PM",
+      icon:"ios-cloudy-night",
+      degree:"28\xb0",
+      color:"rgba(255,255,255,0.8)"
+    },{  
+      key:124,
+      time:"11PM",
+      icon:"ios-cloudy",
+      degree:"28\xb0",
+      color:"rgba(255,255,255,0.8)"
+    },{  
+      key:125,
+      time:"12AM",
+      icon:"ios-cloudy",
+      degree:"28\xb0",
+      color:"rgba(255,255,255,0.8)"
+    },{  
+      key:126,
+      time:"1AM",
+      icon:"ios-cloudy",
+      degree:"27\xb0",
+      color:"rgba(255,255,255,0.8)"
+    },{  
+      key:127,
+      time:"2AM",
+      icon:"ios-cloudy",
+      degree:"27\xb0",
+      color:"rgba(255,255,255,0.8)"
+    }],
+  days:[{  
+      key:21,
+      day:"Monday",
+      icon:"ios-partly-sunny",
+      high:32,
+      low:25
+    },{  
+      key:22,
+      day:"Tuesday",
+      icon:"ios-rainy",
+      high:33,
+      low:25
+    },{  
+      key:23,
+      day:"Wednesday",
+      icon:"ios-rainy",
+      high:33,
+      low:25
+    },{  
+      key:24,
+      day:"Thursday",
+      icon:"ios-rainy",
+      high:33,
+      low:25
+    },{  
+      key:25,
+      day:"Friday",
+      icon:"ios-rainy",
+      high:32,
+      low:25
+    },{  
+      key:26,
+      day:"Saturday",
+      icon:"ios-partly-sunny",
+      high:32,
+      low:25
+    },{  
+      key:27,
+      day:"Sunday",
+      icon:"ios-rainy",
+      high:32,
+      low:24
+    },{  
+      key:28,
+      day:"Monday",
+      icon:"ios-partly-sunny",
+      high:32,
+      low:25
+    },{  
+      key:29,
+      day:"Tuesday",
+      icon:"ios-partly-sunny",
+      high:32,
+      low:25
+    }],
+  info:"Today: Mostly cloudy currently. It's 28\xb0; the high today was forecase to be 32 \xb0.",
+  rise:"6:52 AM",
+  down:"6:59 PM",
+  prop:"10%",
+  humi:"94%",
+  dir:"NE",
+  speed:" 8 km/hr",
+  feel:"15\xb0",
+  rain:"0.0 cm",
+  pres:"1,009 mb",
+  sight:"9.7 km",
+  uv:"0"
+
+},{  
+  key:1,
+  city:"Kuala Lumpur",
+  night:!1,
+  bg:require('./imgs/w3.png'),
+  abs:"Mostly Cloudy",
+  degree:29,
+  today:{  
+    week:"Sunday",
+    day:"Today",
+    high:32,
+    low:25
+  },
+  hours:[{  
+      key:101,
+      time:"Now",
+      icon:"ios-moon",
+      degree:"27\xb0",
+      color:"rgba(255,255,255,1)"
+    },{  
+      key:102,
+      time:"3AM",
+      icon:"ios-cloudy-night",
+      degree:"26\xb0",
+      color:"rgba(255,255,255,0.8)"
+    },{  
+      key:103,
+      time:"4AM",
+      icon:"ios-cloudy-night",
+      degree:"26\xb0",
+      color:"rgba(255,255,255,0.8)"
+    },{  
+      key:104,
+      time:"5AM",
+      icon:"ios-cloudy-night",
+      degree:"26\xb0",
+      color:"rgba(255,255,255,0.8)"
+    },{  
+      key:105,
+      time:"6AM",
+      icon:"ios-cloudy-night",
+      degree:"26\xb0",
+      color:"rgba(255,255,255,0.8)"
+    },{  
+      key:106,
+      time:"6:52 AM",
+      icon:"ios-sunny-outline",
+      degree:"Sunrise",
+      color:"#fedf32"
+    },{  
+      key:107,
+      time:"7AM",
+      icon:"ios-partly-sunny",
+      degree:"26\xb0",
+      color:"rgba(255,255,255,0.9)"
+    },{  
+      key:108,
+      time:"8AM",
+      icon:"ios-partly-sunny",
+      degree:"26\xb0",
+      color:"rgba(255,255,255,0.9)"
+    },{  
+      key:109,
+      time:"9AM",
+      icon:"ios-sunny",
+      degree:"27\xb0",
+      color:"#fedf32"
+    },{  
+      key:110,
+      time:"10AM",
+      icon:"ios-sunny",
+      degree:"29\xb0",
+      color:"#fedf32"
+    },{  
+      key:111,
+      time:"11AM",
+      icon:"ios-sunny",
+      degree:"31\xb0",
+      color:"#fedf32"
+    },{  
+      key:112,
+      time:"12PM",
+      icon:"ios-sunny",
+      degree:"31\xb0",
+      color:"#fedf32"
+    },{  
+      key:113,
+      time:"1PM",
+      icon:"ios-sunny",
+      degree:"32\xb0",
+      color:"#fedf32"
+    },{  
+      key:114,
+      time:"2PM",
+      icon:"ios-partly-sunny",
+      degree:"32\xb0",
+      color:"rgba(255,255,255,0.9)"
+    },{  
+      key:115,
+      time:"3PM",
+      icon:"ios-partly-sunny",
+      degree:"32\xb0",
+      color:"rgba(255,255,255,0.9)"
+    },{  
+      key:116,
+      time:"4PM",
+      icon:"ios-partly-sunny",
+      degree:"31\xb0",
+      color:"rgba(255,255,255,0.9)"
+    },{  
+      key:117,
+      time:"5PM",
+      icon:"ios-partly-sunny",
+      degree:"31\xb0",
+      color:"rgba(255,255,255,0.9)"
+    },{  
+      key:118,
+      time:"6PM",
+      icon:"ios-partly-sunny",
+      degree:"31\xb0",
+      color:"rgba(255,255,255,0.9)"
+    },{  
+      key:119,
+      time:"6:59 PM",
+      icon:"ios-partly-sunny-outline",
+      degree:"Sunset",
+      color:"rgba(255,255,255,0.9)"
+    },{  
+      key:120,
+      time:"7PM",
+      icon:"ios-cloudy-night",
+      degree:"29\xb0",
+      color:"rgba(255,255,255,0.8)"
+    },{  
+      key:121,
+      time:"8PM",
+      icon:"ios-cloudy-night",
+      degree:"29\xb0",
+      color:"rgba(255,255,255,0.8)"
+    },{  
+      key:122,
+      time:"9PM",
+      icon:"ios-cloudy-night",
+      degree:"28\xb0",
+      color:"rgba(255,255,255,0.8)"
+    },{  
+      key:123,
+      time:"10PM",
+      icon:"ios-cloudy-night",
+      degree:"28\xb0",
+      color:"rgba(255,255,255,0.8)"
+    },{  
+      key:124,
+      time:"11PM",
+      icon:"ios-cloudy",
+      degree:"28\xb0",
+      color:"rgba(255,255,255,0.8)"
+    },{  
+      key:125,
+      time:"12AM",
+      icon:"ios-cloudy",
+      degree:"28\xb0",
+      color:"rgba(255,255,255,0.8)"
+    },{  
+      key:126,
+      time:"1AM",
+      icon:"ios-cloudy",
+      degree:"27\xb0",
+      color:"rgba(255,255,255,0.8)"
+    },{  
+      key:127,
+      time:"2AM",
+      icon:"ios-cloudy",
+      degree:"27\xb0",
+      color:"rgba(255,255,255,0.8)"
+    }],
+  days:[{  
+      key:21,
+      day:"Monday",
+      icon:"ios-partly-sunny",
+      high:32,
+      low:25
+    },{  
+      key:22,
+      day:"Tuesday",
+      icon:"ios-rainy",
+      high:33,
+      low:25
+    },{  
+      key:23,
+      day:"Wednesday",
+      icon:"ios-rainy",
+      high:33,
+      low:25
+    },{  
+      key:24,
+      day:"Thursday",
+      icon:"ios-rainy",
+      high:33,
+      low:25
+    },{  
+      key:25,
+      day:"Friday",
+      icon:"ios-rainy",
+      high:32,
+      low:25
+    },{  
+      key:26,
+      day:"Saturday",
+      icon:"ios-partly-sunny",
+      high:32,
+      low:25
+    },{  
+      key:27,
+      day:"Sunday",
+      icon:"ios-rainy",
+      high:32,
+      low:24
+    },{  
+      key:28,
+      day:"Monday",
+      icon:"ios-partly-sunny",
+      high:32,
+      low:25
+    },{  
+      key:29,
+      day:"Tuesday",
+      icon:"ios-partly-sunny",
+      high:32,
+      low:25
+    }],
+  info:"Today: Mostly cloudy currently. It's 28\xb0; the high today was forecase to be 32 \xb0.",
+  rise:"6:52 AM",
+  down:"6:59 PM",
+  prop:"10%",
+  humi:"94%",
+  dir:"NE",
+  speed:" 8 km/hr",
+  feel:"15\xb0",
+  rain:"0.0 cm",
+  pres:"1,009 mb",
+  sight:"9.7 km",
+  uv:"0"
+}];
 
 
 class WeatherView extends Component {
   constructor() {
     super();
     this.state = this._initState();
+  }
+  
+  _back() {
+    this.props.navigator.pop();
   }
 
   _initState() {
@@ -109,51 +600,51 @@ class WeatherView extends Component {
             <View style={styles.weatherOther}>
               <View style={styles.weatherOtherSection}>
                 <View style={styles.weatherOtherLine}>
-                  <Text style={styles.weatherOtherTitle}>日出：</Text>
+                  <Text style={styles.weatherOtherTitle}>Sunrise:</Text>
                   <Text style={styles.weatherOtherValue}>{elem.rise}</Text>
                 </View>
                 <View style={styles.weatherOtherLine}>
-                  <Text style={styles.weatherOtherTitle}>日落：</Text>
+                  <Text style={styles.weatherOtherTitle}>Sunset:</Text>
                   <Text style={styles.weatherOtherValue}>{elem.down}</Text>
                 </View>
               </View>
               <View style={styles.weatherOtherSection}>
                 <View style={styles.weatherOtherLine}>
-                  <Text style={styles.weatherOtherTitle}>降雨概率：</Text>
+                  <Text style={styles.weatherOtherTitle}>Chance of Rain:</Text>
                   <Text style={styles.weatherOtherValue}>{elem.prop}</Text>
                 </View>
                 <View style={styles.weatherOtherLine}>
-                  <Text style={styles.weatherOtherTitle}>湿度：</Text>
+                  <Text style={styles.weatherOtherTitle}>Humidity:</Text>
                   <Text style={styles.weatherOtherValue}>{elem.humi}</Text>
                 </View>
               </View>
               <View style={styles.weatherOtherSection}>
                 <View style={styles.weatherOtherLine}>
-                  <Text style={styles.weatherOtherTitle}>风速：</Text>
+                  <Text style={styles.weatherOtherTitle}>Wind:</Text>
                   <Text style={styles.weatherOtherValue}><Text style={{fontSize:10}}>{elem.dir}</Text>{elem.speed}</Text>
                 </View>
                 <View style={styles.weatherOtherLine}>
-                  <Text style={styles.weatherOtherTitle}>体感温度：</Text>
+                  <Text style={styles.weatherOtherTitle}>Feels Like:</Text>
                   <Text style={styles.weatherOtherValue}>{elem.feel}</Text>
                 </View>
               </View>
               <View style={styles.weatherOtherSection}>
                 <View style={styles.weatherOtherLine}>
-                  <Text style={styles.weatherOtherTitle}>降水量：</Text>
+                  <Text style={styles.weatherOtherTitle}>Precipitation:</Text>
                   <Text style={styles.weatherOtherValue}>{elem.rain}</Text>
                 </View>
                 <View style={styles.weatherOtherLine}>
-                  <Text style={styles.weatherOtherTitle}>气压：</Text>
+                  <Text style={styles.weatherOtherTitle}>Pressure:</Text>
                   <Text style={styles.weatherOtherValue}>{elem.pres}</Text>
                 </View>
               </View>
               <View style={styles.weatherOtherSection}>
                 <View style={styles.weatherOtherLine}>
-                  <Text style={styles.weatherOtherTitle}>能见度：</Text>
+                  <Text style={styles.weatherOtherTitle}>Visibility:</Text>
                   <Text style={styles.weatherOtherValue}>{elem.sight}</Text>
                 </View>
                 <View style={styles.weatherOtherLine}>
-                  <Text style={styles.weatherOtherTitle}>紫外线指数：</Text>
+                  <Text style={styles.weatherOtherTitle}>UV Index:</Text>
                   <Text style={styles.weatherOtherValue}>{elem.uv}</Text>
                 </View>
               </View>
@@ -240,7 +731,7 @@ const styles = StyleSheet.create({
     fontSize:15,
     color: "#fff",
     fontWeight: "400",
-    width:50,
+    width:60,
   },
   withinDayDay:{
     fontSize:15,
