@@ -23,6 +23,7 @@ import Util from './Util';
 
 import TimerView from './views/01_timer/TimerView';
 import WeatherView from './views/02_weather/WeatherView';
+import TwitterStartView from './views/03_twitter_start/TwitterStartView';
 
 export default () => {
   return {
@@ -50,7 +51,7 @@ class MainScene extends Component {
         size: 60,
         color:'#90bdc1',
       },{
-        route: TimerView,
+        route: TwitterStartView,
         isFA: true,
         icon: 'twitter',
         size: 50,
