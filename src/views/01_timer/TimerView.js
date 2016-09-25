@@ -22,7 +22,7 @@ import Util from './../../Util';
 export default () => {
   return {
     class: TimerView,
-    title: 'Timer App',
+    title: 'Timer App'
   }
 };
 
@@ -140,9 +140,11 @@ class TimerView extends Component {
     this.state = this._initState();
   }
 
+
   componentWillUnmount() {
     this._stopTimer();
     this._resetTimer();
+    clearInterval(this.interval);
   }
 
   _formatTime(time) {
@@ -198,7 +200,7 @@ class TimerView extends Component {
       lapseTimestamp: startTimestamp,
     })
 
-    let interval = setInterval(() => {
+    this.interval = setInterval(() => {
       let currentTimestamp = (new Date()).getTime();
       this.setState({
         totalTime: this.state.pausedTime + (currentTimestamp - this.state.initialTimestamp),
@@ -211,9 +213,9 @@ class TimerView extends Component {
           pausedLapseTime: this.state.lapseTime,
         });
         // stop the scheduler
-        clearInterval(interval);
+        clearInterval(this.interval);
       };
-    }, 100);
+    }, 10);
   }
 
   render() {
