@@ -124,7 +124,7 @@ export default class extends Component {
 const styles = StyleSheet.create({
   container:{
     flex: 1,
-    paddingTop:32,
+//    paddingTop:32,
   },
   navBar: {
     // backgroundColor: 'red',
