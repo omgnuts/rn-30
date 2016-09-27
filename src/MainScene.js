@@ -24,6 +24,8 @@ import Util from './Util';
 import TimerView from './views/01_timer/TimerView';
 import WeatherView from './views/02_weather/WeatherView';
 import TwitterStartView from './views/03_twitter_start/TwitterStartView';
+import FindLocationView from './views/05_location/FindLocationView';
+
 
 export default () => {
   return {
@@ -56,7 +58,14 @@ class MainScene extends Component {
         icon: 'twitter',
         size: 50,
         color: '#2aa2ef',
-      }]
+      },{
+        route: FindLocationView,
+        isFA: false,
+        icon: 'ios-navigate',
+        size: 50,
+        color: '#00D204',
+      }      
+      ]
     };
   }
 
